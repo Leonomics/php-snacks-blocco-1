@@ -1,12 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<a href="index.php">Index Page</a>
 
-</body>
-</html>
+<form action="snack-2.php" method="get">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email">
+    <label for="age">Age</label>
+    <input type="text" name="age" id="age">
+    <input type="submit" value="Invia Modulo">
+</form>
+
+<?php
+
+    $name = $_GET['name'];
+    $email = $_GET['email'];
+    $age = $_GET['age'];
+
+    $charactersInName = strlen($name);
+    $ageIsNumber = is_numeric($age);
+    $emailContainsAt = strpos($email, '@');
+    $emailContainsDot = strpos($email, '.');
+
+    if($charactersInName >3 && $ageIsNumber == true && $emailContainsAt != FALSE && $emailContainsDot != FALSE){
+        echo "Accesso Riuscito";
+    }
+    else{
+        echo "Accesso Negato";
+    }
+
+    //echo $name . " " . $email . " " . $age;
+
+
+?>

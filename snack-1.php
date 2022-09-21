@@ -9,14 +9,14 @@
 <body>
 
     <?php
-        $partite[
+        $partite = [
             [
                 'home' => 'Dragons',
                 'guest' => 'Minions',
                 'homeScore' => 830,
                 'guestScore' => 570
             ]
-        ]
+            ];
     ?>
 
     <a href="index.php">Index Page</a>
