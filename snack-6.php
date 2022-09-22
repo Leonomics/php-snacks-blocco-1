@@ -32,20 +32,41 @@
                 ]
             ]
         ];
-    ?>
 
-    <ul>
-    <?php
-            foreach($db as $chiave => $valore){
+        $keys = array_keys($db);
+
+        for ($i = 0; $i<count($db); $i++){
+            $key = $keys[$i];
+            if ($key == 'teachers'){
+
                 ?>
-                <li>
+                <div class="block teacher">
                     <?php
-                        echo $chiave .  $valore['name'];
+                    echo "{$db[$key][$i]['name']}{$db[$key][$i]['lastname']}"
                     ?>
-                </li>
-                <?php
+                </div>
+            <?php
+            }elseif ($key == 'pm'){
+                ?>
+                <div class="block pm">
+                    <?php
+                    echo "{$db[$key][$i]['name']}{$db[$key][$i]['lastname']}"
+                    ?>
+                </div>
+            <?php
             }
+        }
         ?>
-        </ul>
+    <style>
+        .block{
+            max-width:300px;
+        }
+        .teacher{
+            background-color: green;
+        }
+        .pm{
+            background-color: red;
+        }
+    </style>
 </body>
 </html>
